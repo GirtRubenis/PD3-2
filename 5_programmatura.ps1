@@ -1,3 +1,3 @@
-﻿$msStoreApps = Get-AppxPackage | Where-Object { $_.SignatureKind -eq "Store" }
-$appCount = $msStoreApps.Count
-Write-Host "[$appCount] apps from the Microsoft Store are installed on the system."
+$apps = winget list --source msstore | Select-String "msstore"
+$count = $apps.Count
+Write-Host "Sistēmā ir instalētas $count aplikācijas no Microsoft Store."
